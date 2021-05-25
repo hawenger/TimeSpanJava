@@ -5,7 +5,7 @@ public class TimeSpanTester {
 		//This testing code is pretty bare-bones.
 		//Feel free to put in your own tests as well. 
 		
-		TimeSpan t1 = new TimeSpan(0, 125);
+		TimeSpanned t1 = new TimeSpanned(0, 125);
 		System.out.println(t1); //Should output "2h5m"
 		
 		t1.add(1, 70);
@@ -19,7 +19,7 @@ public class TimeSpanTester {
 		
 		System.out.println( t1.getTotalHours() ); //Should output 4.25
 		
-		TimeSpan t2 = new TimeSpan(2, 50);
+		TimeSpanned t2 = new TimeSpanned(2, 50);
 		t1.add(t2); 
 		System.out.println(t1); //Should output "7h5m"
 	}
