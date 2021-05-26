@@ -8,11 +8,14 @@ public class TimeSpanned {
 	 * @param minutes time in minutes (1-60)
 	 * @param hours time in hours (each hour == 60 minutes)
 	 */
-	public TimeSpanned(int minutes, int hours) {
+	
+	//Constructor
+	public TimeSpanned(int hours, int minutes) {
 		this.minutes = minutes;
 		this.hours = hours;
 	}
-
+	
+	//Getters
 	public int getHours() {
 		return hours;
 	}
@@ -22,21 +25,34 @@ public class TimeSpanned {
 	}
 	
 	public void add(int hours, int minutes) {
-		this.hours = hours;
-		this.minutes = minutes;
+		
+		this.hours = getHours() + hours;
+		this.minutes = getMinutes() + minutes;
+
 	}
 	
-	//public void add(TimeSpanned t) {
-	//	this.getTotalHours(hours, minutes) += getTotalHours(t);
-	//}
-	public double getTotalHours(int hours, int minutes) {
-		double totalHours = ((hours * 60) + minutes) / 60;
+	public void add(TimeSpanned t) {
+		
+		this.add(t.hours, t.minutes);
+
+	}
+	public double getTotalHours() {
+		int newHours = getHours();
+		int newMinutes = getMinutes();
+		int minutesToHours = 0;
+		if(newMinutes > 59) {
+			minutesToHours = newMinutes / 60;
+		}
+		double totalHours = minutesToHours + newHours;
+		this.minutes = ((newHours * 60) + newMinutes) -((int)totalHours * 60) ;
+		this.hours = (int)totalHours;
+
 		return totalHours;
 	}
 	
-	//public String toString() {
-		
-	//	return TimeString;
-	//}
+	public String toString() {
+		String timeString = ( (int)getTotalHours() + "h" + minutes + "m");
+		return timeString;
+	}
 
 }
