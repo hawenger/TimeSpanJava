@@ -1,3 +1,4 @@
+//Hannah Wenger
 
 public class TimeSpanned {
 	private int minutes;
@@ -26,8 +27,8 @@ public class TimeSpanned {
 	
 	public void add(int hours, int minutes) {
 		
-		this.hours = getHours() + hours;
-		this.minutes = getMinutes() + minutes;
+		this.hours = this.hours + hours;
+		this.minutes = this.minutes + minutes;
 
 	}
 	
@@ -36,15 +37,18 @@ public class TimeSpanned {
 		this.add(t.hours, t.minutes);
 
 	}
+	
 	public double getTotalHours() {
-		int newHours = getHours();
-		int newMinutes = getMinutes();
+		
+		int newHours = this.hours;
+		int newMinutes = this.minutes;
 		int minutesToHours = 0;
-		if(newMinutes > 59) {
-			minutesToHours = newMinutes / 60;
-		}
+			if(newMinutes > 59) {
+				minutesToHours = newMinutes / 60;
+			}
+
 		double totalHours = minutesToHours + newHours;
-		this.minutes = ((newHours * 60) + newMinutes) -((int)totalHours * 60) ;
+		minutes = ((newHours * 60) + newMinutes) -((int)totalHours * 60) ;
 		this.hours = (int)totalHours;
 
 		return totalHours;

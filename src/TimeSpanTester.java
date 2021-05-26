@@ -19,7 +19,7 @@ public class TimeSpanTester {
 		
 		System.out.println( t1.getMinutes() ); //Should output 15
 		
-		System.out.println( t1.getTotalHours() ); //Should output 4.25
+		System.out.println( t1.getTotalHours() ); //Should output 4.25 // Did not use divisor and modulus for calculations thus test prints actual 
 		
 		TimeSpanned t2 = new TimeSpanned(2, 50);
 		t1.add(t2); 
